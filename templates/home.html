@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plagrism Checker-PlagiaGuard.ai</title>
+</head>
+
+<body style="background-color: #f5f5f5; margin: 0;">
+
+  <!-- Header -->
+  <header style="background-color: white; padding: 30px;">
+    <div style="background-color: #003366; color: white; text-align: center;
+                padding: 15px; margin: 0 auto; width: 80%; border-radius: 10px;">
+      <h1 style="margin: 0;">PlagiaGuard</h1>
+      <p style="font-size: 20px; margin-top: 8px;">
+        Your Best Plagiarism Checker Tool — Fast, Simple, Accurate.
+      </p>
+    </div>
+  </header>
+
+  <!-- Instructions -->
+  <div style="text-align: center; margin-top: 40px; margin-bottom: 20px; padding: 0 60px;">
+    <h2 style="color: #003366; margin-bottom: 10px;">How to Use</h2>
+    <p style="font-size: 16px; line-height: 1.6; max-width: 800px; margin: auto;">
+      Welcome to <strong>PlagiaGuard</strong> — your trusted tool to check if any student submission matches an original essay.
+      <br><br>
+      Paste the <strong>original source essay</strong> on the left, and the <strong>student’s suspected or flagged essay</strong> on the right.
+      <br><br>
+      Once both are entered, click the <em>Compare</em> button below to instantly check for possible plagiarism.
+      <br><br>
+      Results will highlight a similarity score and common words detected to help you take the next step with confidence.
+    </p>
+  </div>
+
+  <!-- Essay Input + Compare Button -->
+  <form method="POST" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+
+    <!-- Essay Inputs Row -->
+    <div style="display: flex; justify-content: center; gap: 100px; margin-bottom: 20px;">
+      <!-- Original Essay -->
+      <div style="text-align: left;">
+        <label for="essay_one"><big>Original Essay</big></label><br>
+        <textarea id="essay_one" name="essay_one" placeholder="Enter upto 5000 words" required
+          style="width: 300px; height: 300px; resize: vertical;"></textarea>
+      </div>
+
+      <!-- Flagged Essay -->
+      <div style="text-align: left;">
+        <label for="essay_two"><big>Flagged Essay</big></label><br>
+        <textarea id="essay_two" name="essay_two" placeholder="Enter upto 5000 words" required
+          style="width: 300px; height: 300px; resize: vertical;"></textarea>
+      </div>
+    </div>
+
+    <!-- Compare Button -->
+    <button type="submit" style="
+      background-color: #003366;
+      color: white;
+      padding: 10px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    ">Compare</button>
+  </form>
+
+  <!-- Results -->
+<div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 40px; max-width: 1200px; margin: auto; gap: 40px;">
+
+  <!-- LEFT: Main Results -->
+  <!-- LEFT: Main Results with border -->
+<div style="flex: 1; border: 3px solid #003366; padding: 25px; border-radius: 10px; background-color: white;">
+
+    <!-- Common Words -->
+    <h2>Common Words:</h2>
+    <p>{{ common | join(", ") }}</p>
+    <p><strong>Word Count:</strong> {{ common_length }}</p>
+
+    <br>
+
+    <!-- Uncommon Words -->
+    <h2>Uncommon Words:</h2>
+    <p>{{ uncommon | join(", ") }}</p>
+    <p><strong>Word Count:</strong> {{ uncommon_length }}</p>
+
+    <br>
+
+    <!-- Similarity Score -->
+    <h2>Similarity Score:</h2>
+    <p><strong>{{ similarity_score }}%</strong></p>
+    <p><strong>{{ similarity }}</strong></p>
+  </div>
+
+  <!-- RIGHT: Tips Box -->
+  <div style="width: 320px; flex-shrink: 0;">
+    <div style="border: 3px solid #003366; padding: 20px; border-radius: 10px; background-color: #f0f8ff;">
+      <h2 style="color: #003366; text-align: center;">Tips to Avoid Plagiarism</h2>
+      <ul style="font-size: 15px; line-height: 1.6;">
+        <li>Use your own words when writing.</li>
+        <li>Always cite your sources.</li>
+        <li>Paraphrase instead of copying.</li>
+        <li>Use quotation marks for direct quotes.</li>
+        <li>Run your work through a plagiarism checker.</li>
+        <li>Understand what counts as plagiarism.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<!-- Explanation Section -->
+<div style="background-color: #f0f4f8; padding: 40px;">
+  <h2 style="text-align: center; color: #003366;">How does this Work</h2>
+  <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; max-width: 800px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <strong>Description</strong>
+    <p style="color: #333333; line-height: 1.6; font-size: 16px;">
+      This tool checks how much of the student’s essay matches the original source.
+      It removes basic grammar words like “the,” “is,” “in,” etc., and focuses only on the important words.
+      Then it compares both essays to find the matching words.
+      The similarity score is calculated by dividing the number of matching important words by the total important words in the original essay.
+      The higher the score, the more similar the two essays are.
+<br>
+<br>
+      <strong>To calculate the Similarity Score, The formula we use is:</strong> 
+      <br>
+      (number of matching important words) ÷ (total number of important words in the original essay) × 100
+      <br>
+      <br>
+      <strong>Example:</strong>
+      <br>
+      
+      10 important words in the original essay
+<br>
+      6 of them are also in the student’s essay
+      <br>
+    
+      Similarity score = (6 ÷ 10) × 100 = 60%
+<br>
+<br>
+     <strong>What the Score Means</strong>
+      <br>
+      80–100% → High Similarity (likely copied)
+      <br>
+      40–79% → Medium Similarity (some parts reused)
+      <br>
+      0–39% → Low Similarity (mostly original)
+      <br>
+<br>
+
+    </p>
+  </div>
+  </div>
+
+
+
+</body>
+</html>
