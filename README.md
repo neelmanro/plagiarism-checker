@@ -29,14 +29,14 @@ PlagiaGuard is an intuitive, fast, and reliable plagiarism checker designed to h
 ## 📌 Similarity Score Formula
 
 ```
-Similarity Score = (Matching Important Words ÷ Total Important Words in Original Essay) × 100
+Similarity Score = (Matching Important Words / Total Important Words in Original Essay) × 100
 ```
 
 ## ✅ Usage Example
 
 * **Original Essay** has 10 significant words.
 * **Suspected Essay** contains 6 of those words.
-* **Similarity score** = (6 ÷ 10) × 100 = **60%**.
+* **Similarity score** = (6 / 10) × 100 = **60%**.
 
 ## 🔗 Live Demo
 
@@ -73,10 +73,4 @@ python app.py
 
 Open your browser and go to `http://127.0.0.1:5000`
 
-## 🤝 Contribution
 
-Contributions are always welcome! Feel free to fork the repository and create a pull request.
-
-## 📜 License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for more details.
